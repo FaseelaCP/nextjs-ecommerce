@@ -1,6 +1,7 @@
 import Commerce from "@chec/commerce.js";
 
-const commerce = new Commerce(process.env.NEXT_PUBLIC_CHEC_PUBLIC_KEY);
+const commerce = new Commerce(process.env.NEXT_PUBLIC_CHEC_PUBLIC_KEY as string);
+
 
 export async function fetchProducts() {
   try {

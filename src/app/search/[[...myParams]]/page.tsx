@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from "react";
 import ProductCard from "@/app/components/ProductCard/ProductCard";
-import { fetchProductsBySearchQuery} from "@/app/services/ProductService"; // Adjust import based on your actual service
+import { fetchProductsBySearchQuery } from "@/app/services/ProductService"; // Adjust import based on your actual service
 import { Product } from "@chec/commerce.js/types/product";
 
 export default function Search(props: any) {

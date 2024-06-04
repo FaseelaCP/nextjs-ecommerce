@@ -1,6 +1,7 @@
 import Commerce from "@chec/commerce.js";
 
-const commerce = new Commerce(process.env.NEXT_PUBLIC_CHEC_PUBLIC_KEY);
+const commerce = new Commerce(process.env.NEXT_PUBLIC_CHEC_PUBLIC_KEY as string);
+
 
 export async function fetchCategories() {
   try {
@@ -11,8 +12,14 @@ export async function fetchCategories() {
     return [];
   }
 }
-export async function fetchCategoryProducts(categoryid: string) {
+
+export async function fetchCategoryProducts(categoryid?: string) { 
   try {
+    if (!categoryid) {
+      console.error("Category ID is undefined.");
+      return [];
+    }
+
     const { data: products } = await commerce.products.list({
       category_id: [categoryid],
     });

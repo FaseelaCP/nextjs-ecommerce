@@ -1,4 +1,4 @@
-import { fetchCategories } from "@/app/services/CategoryService";
+import { fetchCategories } from "../services/CategoryService"
 import Link from "next/link";
 
 interface Asset {

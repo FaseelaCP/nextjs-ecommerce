@@ -1,4 +1,4 @@
-import { fetchProductById } from "@/app/services/ProductService";
+import { fetchProductById } from "../../services/ProductService";
 
 export default async function ProductDetail(props: any) {
   const prodId = props.params.productId;
