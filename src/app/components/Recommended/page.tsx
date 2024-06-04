@@ -1,4 +1,4 @@
-import { fetchRecommended } from "@/app/services/ProductService";
+import { fetchRecommended } from "../../services/ProductService";
 import ProductCard from "../ProductCard/ProductCard";
 
 export default async function Recommended() {

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { fetchProducts } from "../services/ProductService"; // Assuming filteredProductsByCategory is a function in ProductService
+import { fetchProducts } from "../services/ProductService";
 import ProductCard from "../components/ProductCard/ProductCard";
 import Filter from "../components/Filter/page";
 import { filteredProductsByCategory } from "../services/ProductService";

@@ -1,4 +1,4 @@
-import { fetchCategoryProducts } from "@/app/services/CategoryService";
+import { fetchCategoryProducts } from "../../services/CategoryService";
 import ProductCard from "@/app/components/ProductCard/ProductCard";
 
 export default async function CategoryProducts(props: any) {

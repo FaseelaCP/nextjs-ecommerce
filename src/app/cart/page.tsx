@@ -1,5 +1,5 @@
 'use client'
-console.log(__dirname);
+
 import { CartContext } from "../context/CartContext/CartContext";
 import { useContext } from "react";
 

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { fetchCategories } from "@/app/services/CategoryService";
+import { fetchCategories } from "../../services/CategoryService";
 import { useRouter } from "next/navigation";
 
 export default function Filter(props: any) {

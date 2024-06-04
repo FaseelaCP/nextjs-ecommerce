@@ -3,7 +3,7 @@ import "./productcard.css";
 import React from "react";
 import Link from "next/link";
 import { useContext } from "react";
-import { CartContext } from "@/app/context/CartContext/CartContext";
+import { CartContext } from "../../context/CartContext/CartContext";
 
 ProductCard.defaultProps = {
   product: {},
