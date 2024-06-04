@@ -1,0 +1,17 @@
+.footer{
+  height: 200px;
+  width: 100vw;
+  
+  bottom: 0;
+  background-color:rgb(16 185 37 / 78%);
+  color: white;
+}
+.footer-img img{
+  object-fit: cover;
+  width: 300px;
+  height: 150px;
+}
+h6{
+  color: white;
+  text-decoration:none;
+}

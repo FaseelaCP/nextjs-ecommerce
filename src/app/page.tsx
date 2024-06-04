@@ -1,95 +1,67 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
+import "./globals.css";
+import Recommended from "./components/Recommended/page";
+import Categories from "./Categories/page";
+import { fetchCategories } from "./services/CategoryService";
+import Link from "next/link";
+export default async function Home() {
+  const categories = await fetchCategories();
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+   <>
+   {/* Categories navbar */}
+   <div className="navbar navbar-expand-lg navbar-light bg-light ">
+ 
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse " id="navbarNav">
+  <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-5 "  >
+              {
+                categories.map((category) => (
+                  <li className="nav-item" key={category.id} >
+                    <Link legacyBehavior href={`/Categories/`+category.id}>
+                      <a className="nav-link" style={{color:'gray',textDecoration:'none'}}>{category.name}</a>
+                    </Link>
+                   
+                  </li>
+                   
+                ))
+               
+              }
+                           </ul>
+  </div>
+</div>
+   
+   <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+  <ol className="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img className="d-block w-100" src="banner3.avif" alt="First slide"/>
+    </div>
+    <div className="carousel-item">
+      <img className="d-block w-100" src="banner2.avif" alt="Second slide"/>
+    </div>
+    <div className="carousel-item">
+      <img className="d-block w-100" src="banner3.avif" alt="Third slide"/>
+    </div>
+  </div>
+  
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+</div>
+<div className="categories mt-5 text-center">
+<h3 className="mb-5">Top Categories!!</h3>
+  <Categories/>
+</div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+<div className="recommended mt-5 text-center">
+  <h3 className="mb-5">Best Deals For You!!</h3>
+<Recommended />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+</div>
+  </>
   );
 }

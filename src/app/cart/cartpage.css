@@ -1,0 +1,16 @@
+.cartpage {
+  height: 100vh;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.mycart {
+  height: 200px;
+}
+.cart-img {
+  height: 100px;
+  width: 100px;
+}
+.cart-item-title {
+  height: 100px;
+}
