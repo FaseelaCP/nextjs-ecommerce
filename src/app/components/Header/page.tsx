@@ -1,27 +1,27 @@
 'use client'
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+
 import "./header.css";
+import Router from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
-  const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState("");
+  const router=useRouter();
+  const [searchChange,setSearchChange]=useState('')
+  
+  
 
   function onSearchChange(event:any) {
-    setSearchQuery(event.target.value);
+    setSearchChange(event.target.value);
   }
 
-  async function onSearchClick() {
-    try {
-      if (searchQuery) {
-        console.log(searchQuery);
-        router.push(`?search=${searchQuery}`);
-      }
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
-  }
+  const onSearchClick = () => {
+    if (searchChange.trim() !== '') {
+      router.push(`/products?query=${searchChange.trim()}`); }
+  };
+
+  
 
   return (
     <div className="header">
@@ -79,7 +79,7 @@ export default function Header() {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li>
-                  <Link className="me-2 nav-link header-links" href={"/products"}>
+                  <Link className="me-2 nav-link header-links" href={"/products"} >
                     All Products
                   </Link>
                 </li>

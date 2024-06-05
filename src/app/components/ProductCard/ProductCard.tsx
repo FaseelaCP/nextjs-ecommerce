@@ -34,7 +34,7 @@ export default function ProductCard(props: any) {
               {prod.name}
             </h5>
           </Link>
-          <p className="card-text card-description" dangerouslySetInnerHTML={{__html: prod.description}}></p>
+          <div className="card-text card-description" dangerouslySetInnerHTML={{__html: prod.description}}></div>
         </div>
         <div className="card-body">
           <button className="card-link btn btn-dark" onClick={handleAddToCart}>

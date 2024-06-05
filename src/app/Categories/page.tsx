@@ -43,13 +43,13 @@ export default async function Categories() {
             ))}
           </div>
           <div>
-            <Link legacyBehavior href={`/Categories/${category.id}`}>
-              <a
-                suppressHydrationWarning={true}
+            <Link href={`/Categories/${category.id}`}
+              
+                
                 style={{ color: "gray", textDecoration: "none" }}
               >
                 {category.name}
-              </a>
+              
             </Link>
           </div>
         </div>
