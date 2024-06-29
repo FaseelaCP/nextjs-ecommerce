@@ -16,7 +16,7 @@ interface CartItem {
 }
 
 function CartPage() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
 
   return (
     <div className="cartpage">
@@ -37,15 +37,14 @@ function CartPage() {
                       {item.name}
                     </h3>
                   </div>
-
-                  <div className="col-3">
-                    <h5>Quantity:</h5>
+                  <div className="col-2">
+                    <h5>Qty: {item.quantity}</h5>
                   </div>
-                  <div className="col-3">
-                    <button className="btn btn-dark me-2">
+                  <div className="col-4">
+                    <button className="btn btn-dark me-2" onClick={()=>{addToCart(item)}}>
                       Add
                     </button>
-                    <button className="btn btn-dark me-2">
+                    <button className="btn btn-dark me-2" onClick={()=>{removeFromCart(item.id)}}>
                       Remove
                     </button>
                   </div>

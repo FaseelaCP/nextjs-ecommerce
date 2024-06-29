@@ -5,7 +5,7 @@ const commerce = new Commerce('pk_57196711a73f05d1bfdb6a4528a11109ff4d32093bd31'
 
 export async function fetchProducts() {
   try {
-    const products = await commerce.products.list();
+    const {data : products} = await commerce.products.list();
     return products;
   } catch (error) {
     console.error("Error fetching products:", error);

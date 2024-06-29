@@ -6,6 +6,7 @@ import { ReactNode } from "react";
 interface CartItem {
   id: string;
   name: string;
+  quantity:number;
   image: { url: string };
 }
 
@@ -29,17 +30,24 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const addToCart = (item: CartItem) => {
-    setCartItems([...cartItems, item]);
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      const updatedItems = cartItems.map((cartItem) =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+      );
+      setCartItems(updatedItems);
+    } else {
+      // If item doesn't exist in cart, add it with quantity 1
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
   };
 
   const removeFromCart = (itemId: string) => {
-    const itemIndex = cartItems.findIndex((item) => item.id === itemId);
-    if (itemIndex !== -1) {
-      setCartItems([
-        ...cartItems.slice(0, itemIndex),
-        ...cartItems.slice(itemIndex + 1),
-      ]);
-    }
+    const updatedItems = cartItems.map((cartItem) =>
+      cartItem.id === itemId ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+    );
+    // Remove items with quantity <= 0
+    setCartItems(updatedItems.filter((item) => item.quantity > 0));
   };
 
   return (

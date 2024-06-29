@@ -26,7 +26,7 @@ export default function ProductCard(props: any) {
           <img src={prod?.image?.url} className="card-img-top" alt="..." />
         </Link>
         <div className="card-body">
-          <Link href={"/products/" + prod.id}>
+          <Link href={"/products/" + prod.id} style={{textDecoration:'none'}}>
             <h5
               className="card-title"
               style={{ color: "gray", textDecoration:'none' }}

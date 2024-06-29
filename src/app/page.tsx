@@ -9,7 +9,7 @@ export default async function Home() {
   var categories = await fetchCategories();
 
   return (
-    <>
+    <div style={{minHeight:'100vh'}}>
       {/* Categories navbar */}
       <div className="navbar navbar-expand-lg navbar-light bg-light ">
         <button
@@ -87,6 +87,6 @@ export default async function Home() {
         <h3 className="mb-5">Best Deals For You!!</h3>
         <Recommended />
       </div>
-    </>
+    </div>
   );
 }
